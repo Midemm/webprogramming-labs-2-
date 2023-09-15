@@ -40,6 +40,7 @@ footer:hover {
     text-align: right
 }
 a{
+    
     transition: 3s 100ms;
 }
 
@@ -67,7 +68,16 @@ h1{
 img{
     display: flex;
     margin: auto;
-    height: 450px;
     width: 450px;
 }
 
+div{
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 20px;
+}
+
+.rout{
+    font-size: 20px;
+    margin-left: 45%;
+}
