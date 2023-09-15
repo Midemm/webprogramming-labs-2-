@@ -1,0 +1,73 @@
+body {
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+}
+
+header {
+    background:linear-gradient(to right, orange, green);
+    color: black;
+    padding: 10px;
+    font-size: 16pt;
+}
+
+main{
+    margin: 10px 20px;
+}
+header:hover {
+    background:linear-gradient(to right,orange, green);
+    color: lightgreen;
+    padding: 10px;
+    font-size: 20pt;
+}
+
+footer {
+    background:linear-gradient(to right, green,orange);
+    color: black;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: right;
+    bottom: 0;
+    position: fixed;
+    width: 99%;
+}
+footer:hover {
+    background:linear-gradient(to right, green,orange);
+    color: lightgreen;
+    padding: 10px;
+    font-size: 20pt;
+    text-align: right
+}
+a{
+    transition: 3s 100ms;
+}
+
+a:visited{
+    color: purple;
+    background-color: black;
+}
+
+a:hover{
+    color: red;
+    text-decoration: underline;
+    background-color: white;
+    transition: 300ms 500ms;
+}
+
+a:active{
+    color:pink;
+    background-color: green;
+}
+
+h1{
+    text-align: center;
+}
+
+img{
+    display: flex;
+    margin: auto;
+    height: 450px;
+    width: 450px;
+}
+

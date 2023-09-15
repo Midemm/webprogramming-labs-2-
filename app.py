@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
 
@@ -6,6 +6,10 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/index")
 def start():
+    return redirect("/menu", code=302)
+
+@app.route("/menu")
+def menu():
     return """
 <!DOCTYPE html>
 <html>
@@ -52,3 +56,26 @@ def lab1():
     </body>
 </html>
 """
+@app.route('/lab1/oak')
+def oak():
+    return'''
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dub</title>
+        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 1
+        </header>
+        <h1>Дуб</h1>
+        <img src="''' + url_for('static', filename='oak.jpg') + '''">
+        <footer>
+            &copy: Колесников Дмитрий, ФБИ-12, 3 курс, 2023
+        </footer>
+    </body>
+</html>
+'''
