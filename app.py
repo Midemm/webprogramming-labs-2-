@@ -171,8 +171,6 @@ def legend():
 
 @app.route('/lab2/example')
 def example():
-    name = 'Колесников Дмитрий'
-    lab_namber = 'Лабораторная работа 2'
-    group = 'ФБИ-12'
-    kurs = '3 курс'
-    return render_template('example.html', name=name, lab_namber=lab_namber, group=group, kurs=kurs)
+    name, lab_namber, group, kurs = 'Колесников Дмитрий', 'Лабораторная работа 2', 'ФБИ-12', '3 курс'
+    fruits = ['Яблоки','Груши','Апельсины','Мандарины','Манго']
+    return render_template('example.html', name=name, lab_namber=lab_namber, group=group, kurs=kurs, fruits=fruits)
