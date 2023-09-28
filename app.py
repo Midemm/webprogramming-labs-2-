@@ -15,7 +15,7 @@ def menu():
 <html>
     <head>
         <title>НГТУ, ФБ, Лабораторные работы</title>
-        <link rel="stylesheet" href=" """ + url_for('static', filename='lab1.css') + """ ">
+        <link rel="stylesheet" href=" """ + url_for('static', filename='main.css') + """ ">
     </head>
     <body>
         <header>
@@ -37,7 +37,7 @@ def lab1():
 <html>
     <head>
         <title> Колесников Дмитрий Константинович, лабораторная 1</title>
-        <link rel="stylesheet" href=" """ + url_for('static', filename='lab1.css') + """ ">
+        <link rel="stylesheet" href=" """ + url_for('static', filename='main.css') + """ ">
     </head>
     <body>
         <header>
@@ -74,7 +74,7 @@ def oak():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dub</title>
-        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
+        <link rel="stylesheet" href="''' + url_for('static', filename='main.css') + '''">
     </head>
     <body>
         <header>
@@ -98,7 +98,7 @@ def student():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Student</title>
-        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
+        <link rel="stylesheet" href="''' + url_for('static', filename='main.css') + '''">
     </head>
     <body>
         <header>
@@ -122,7 +122,7 @@ def python():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Python</title>
-        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
+        <link rel="stylesheet" href="''' + url_for('static', filename='main.css') + '''">
     </head>
     <body>
         <header>
@@ -150,7 +150,7 @@ def legend():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Legend</title>
-        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
+        <link rel="stylesheet" href="''' + url_for('static', filename='main.css') + '''">
     </head>
     <body>
         <header>
