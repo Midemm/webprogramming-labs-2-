@@ -194,7 +194,11 @@ def example():
     return render_template('example.html', name=name, lab_namber=lab_namber, group=group, kurs=kurs, fruits=fruits, books=books)
 
 
-@app.route("/lab2/")
+@app.route('/lab2/')
 def lab2():
    return render_template('lab2.html')
+
+@app.route('/hallucinogenic_plants/')
+def hallucinogenic_plants():
+    return render_template('hallucinogenic_plants.html')
     
