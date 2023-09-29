@@ -41,7 +41,7 @@ footer:hover {
 }
 a{
     
-    transition: 3s 100ms;
+    transition: 1s;
 }
 
 a:visited{
@@ -52,8 +52,7 @@ a:visited{
 a:hover{
     color: red;
     text-decoration: underline;
-    background-color: white;
-    transition: 300ms 500ms;
+    transition: 100ms 50ms;
 }
 
 a:active{

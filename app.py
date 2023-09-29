@@ -22,8 +22,9 @@ def menu():
             НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных
         </header>
 
-        <a href="/lab1">Лабораторная работа 1</a>
-        
+        <li><a href="/lab1">Лабораторная работа 1</a></li>
+        <li><a href="/lab2">Лабораторная работа 2</a></li>
+
         <footer>
             &copy: Колесников Дмитрий, ФБИ-12, 3 курс, 2023
         </footer>
@@ -198,7 +199,6 @@ def example():
 def lab2():
    return render_template('lab2.html')
 
-@app.route('/hallucinogenic_plants/')
+@app.route('/lab2/hallucinogenic_plants/')
 def hallucinogenic_plants():
     return render_template('hallucinogenic_plants.html')
-    
