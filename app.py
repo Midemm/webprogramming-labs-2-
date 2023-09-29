@@ -192,3 +192,9 @@ def example():
         {'autor': 'Антуан де Сент-Экзюпери' , 'name_book': 'Маленький принц' , 'genre': 'Философская притча' , 'pages': 96}
     ]
     return render_template('example.html', name=name, lab_namber=lab_namber, group=group, kurs=kurs, fruits=fruits, books=books)
+
+
+@app.route("/lab2/")
+def lab2():
+   return render_template('lab2.html')
+    
