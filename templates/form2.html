@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block main %}
+
+    {% if user and age %}
+
+    <div>Привет, {{ user }}</div>
+    <div>Добро пожаловать на наш сайт!</div>
+
+    <div>Ваш возраст: {{ age }}</div>
+    <div>Ваш пол: {{ 'мужской' if sex == 'male' else 'женский'}}</div>
+
+    <div>
+        <a href="/lab3/form2">Заново</a>
+    </div>
+
+    {% else %}
+
+    <h1>Пользователь</h1>
+
+    <form>
+        <div>Ваше ФИО:</div>
+        <div>
+            <input type="text" placeholder="ФИО" name="user" value="{{ user or '' }}">
+            <span class="error">{{ errors.user }}</span>
+        </div>
+
+        <div>Тип билета:</div>
+        <div>
+            <select name="bilet_type">
+                <option value="childlike" {{ bilet_type == 'childlike' and 'selected' }}>Детский</option>
+                <option value="adult" {{ bilet_type == 'adult' and 'selected' }}>Взрослый</option>
+            </select>
+        </div>
+
+        <div>На какую полку билет?</div>
+        <div>
+            <select name="mesto">
+                <option value="1" {{ mesto == '1' and 'selected' }}>Верхняя</option>
+                <option value="2" {{ mesto == '2' and 'selected' }}>Нижняя</option>
+                <option value="3" {{ mesto == '3' and 'selected' }}>Боковая верхняя</option>
+                <option value="4" {{ mesto == '4' and 'selected' }}>Боковая нижняя</option>
+            </select>
+        </div>
+
+        <div>Имеете с собой багаж?</div>
+        <div>
+            <select name="bagazh">
+                <label>
+                    <input type="radio" value="yes" {{ bagazh == 'yes' and 'selected' }}>Да
+                </label>
+                <label>
+                    <input type="radio" value="no" {{ bagazh == 'no' and 'selected' }}>Нет
+                </label>
+            </select>
+        </div>
+
+        <div>Ваш возраст:</div>
+        <div>
+            <input type="number" name="age" value="{{ age or '' }}">
+            <span class="error">{{ errors.age }}</span>
+        </div>
+
+        
+        <div>Ваш пол:</div>
+       
+        <div>
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+    {% endif %}
+{% endblock %}
