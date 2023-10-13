@@ -4,13 +4,13 @@
 
 {% block main %}
 
-    {% if user %}
+    {% if user and age %}
 
     <div>Привет, {{ user }}</div>
     <div>Добро пожаловать на наш сайт!</div>
 
-    <div>Ваш пол: {{ sex }}</div>
     <div>Ваш возраст: {{ age }}</div>
+    <div>Ваш пол: {{ 'мужской' if sex == 'male' else 'женский'}}</div>
 
     <div>
         <a href="/lab3/form1">Заново</a>
@@ -23,17 +23,19 @@
     <form>
         <div>Ваше имя:</div>
         <div>
-            <input type="text" placeholder="Как Вас зовут?" name="user">
+            <input type="text" placeholder="Как Вас зовут?" name="user" value="{{ user or ''}}">
+            <span class="error">{{ errors.user }}</span>
         </div>
         <div>Ваш возраст:</div>
         <div>
-            <input type="number" name="age">
+            <input type="number" name="age" value="{{ age or ''}}">
+            <span class="error">{{ errors.age }}</span>
         </div>
         <div>Ваш пол:</div>
         <div>
             <select name="sex">
-                <option value="male">Мужчина</option>
-                <option value="famale">Женщина</option>
+                <option value="male" {{ sex == 'male' and 'selected' }}>Мужчина</option>
+                <option value="famale" {{ sex == 'female' and 'selected'}} >Женщина</option>
             </select>
         </div>
         <div>
