@@ -4,13 +4,16 @@
 
 {% block main %}
 
-    {% if user and age %}
-
-    <div>Привет, {{ user }}</div>
-    <div>Добро пожаловать на наш сайт!</div>
-
+    {% if user and age and bilet_type and mesto and bagazh and Punkt_A and Punkt_B and data %}
+    <div style="font-size: 25px;">Здравствуйте, {{ user }}</div>
+    <div style="font-size: 25px;">Проверьте Ваши данные:</div><br>
+    <div>Тип билета: {{ 'Детский' if bilet_type == 'childlike' else 'Взрослый'}}</div>
+    <div>Полка в вагоне: {{ mesto }} </div>
+    <div>Наличие багажа: {{ 'Да' if bagazh == 'yes' else 'Нет'}}</div>
     <div>Ваш возраст: {{ age }}</div>
-    <div>Ваш пол: {{ 'мужской' if sex == 'male' else 'женский'}}</div>
+    <div>Пункт выезда: {{ Punkt_A }}</div>
+    <div>Пункт назначения: {{ Punkt_B }}</div>
+    <div>Дата поездки: {{ data }}</div>
 
     <div>
         <a href="/lab3/form2">Заново</a>
@@ -35,37 +38,47 @@
             </select>
         </div>
 
-        <div>На какую полку билет?</div>
+        <div>На какое место билет?</div>
         <div>
             <select name="mesto">
-                <option value="1" {{ mesto == '1' and 'selected' }}>Верхняя</option>
-                <option value="2" {{ mesto == '2' and 'selected' }}>Нижняя</option>
-                <option value="3" {{ mesto == '3' and 'selected' }}>Боковая верхняя</option>
-                <option value="4" {{ mesto == '4' and 'selected' }}>Боковая нижняя</option>
+                <option value="Верхняя" {{ mesto == 'Верхняя' and 'selected' }}>Верхняя</option>
+                <option value="Нижняя" {{ mesto == 'Нижняя' and 'selected' }}>Нижняя</option>
+                <option value="Боковая верхняя" {{ mesto == 'Боковая верхняя' and 'selected' }}>Боковая верхняя</option>
+                <option value="Боковая нижняя" {{ mesto == 'Боковая нижняя' and 'selected' }}>Боковая нижняя</option>
             </select>
         </div>
 
         <div>Имеете с собой багаж?</div>
         <div>
             <select name="bagazh">
-                <label>
-                    <input type="radio" value="yes" {{ bagazh == 'yes' and 'selected' }}>Да
-                </label>
-                <label>
-                    <input type="radio" value="no" {{ bagazh == 'no' and 'selected' }}>Нет
-                </label>
+                <option value="yes"  {{ bagazh == 'yes' and 'selected' }}>Да</option>
+                <option value="no" {{ bagazh == 'no' and 'selected' }}>Нет</option>
             </select>
         </div>
 
         <div>Ваш возраст:</div>
         <div>
-            <input type="number" name="age" value="{{ age or '' }}">
+            <input type="number" name="age" value="{{ age or '' }}" min="18" max="120">
             <span class="error">{{ errors.age }}</span>
         </div>
 
-        
-        <div>Ваш пол:</div>
-       
+        <div>Пункт выезда:</div>
+        <div>
+            <input type="text" name="Punkt_A" value="{{ Punkt_A or '' }}">
+            <span class="error">{{ errors.Punkt_A }}</span>
+        </div>
+
+        <div>Пункт назначения:</div>
+        <div>
+            <input type="text" name="Punkt_B" value="{{ Punkt_B or '' }}">
+            <span class="error">{{ errors.Punkt_B }}</span>
+        </div>
+
+        <div>Дата поездки:</div>
+        <div>
+            <input type="date" name="data" max="today" min="2023-10-14" required value="{{ data or '' }}">
+        </div>
+
         <div>
             <button type="submit">Отправить</button>
         </div>
