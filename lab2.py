@@ -35,3 +35,37 @@ def lab():
 @lab2.route('/lab2/hallucinogenic_plants/')
 def hallucinogenic_plants():
     return render_template('hallucinogenic_plants.html')
+
+@lab2.route('/lab2/forone/')
+def forone():
+    k = 16
+    c = 10
+    l = str(k) * c
+    return (l)
+
+@lab2.route('/lab2/lfsix/')
+def lfsix():
+    a = -3.3
+    b = 7.2
+    c = 10.98
+    if (a < b) & (b < c):
+        a *= 2
+        b *= 2
+        c *= 2
+        result = str(a) + ' ' + str(b) + ' ' + str(c)
+    else:
+        result = str(-a)+ ' ' + str(-b) + ' ' + str(-c)
+    return (result)
+
+@lab2.route('/lab2/forsix/')
+def forsix():
+    n = 12
+    k = 22
+    a = 0
+    b = 0
+    while a < n:
+        a += 1
+        c = a ** k
+        b += c
+    l = str(b)
+    return (l)

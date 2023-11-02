@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, url_for, render_template, request
+import math 
 lab3 = Blueprint('lab3',__name__)
 
 
@@ -78,3 +79,49 @@ def form2():
         errors['data'] = 'Заполните поле!'
     return render_template('/form2.html', user=user, bilet_type=bilet_type, 
     mesto=mesto, bagazh=bagazh, age=age, Punkt_A=Punkt_A, Punkt_B=Punkt_B, data=data, errors=errors)
+
+
+@lab3.route('/lab3/forthree/')
+def forthree():
+    x = request.args.get('x')
+    n = request.args.get('n')
+
+    result = 0
+    if n and x:
+        if int(n) > 0:
+            n = int(n)
+            x = float(x)
+
+            result = x
+
+            for i in range(n):
+                result += (((-1**i)*(x**(2*i+1)))/(math.factorial(2*i+1)))
+        else:
+            result = 'error'
+    
+    return render_template('forthree.html', x=x, n=n, result=result)
+
+
+@lab3.route('/lab3/lfnine/')
+def lfnine():
+    a = request.args.get('a')
+    b = request.args.get('b')
+    c = request.args.get('c')
+    d = request.args.get('d')
+    
+    result = 0
+    if a and b and c and d:
+        a = int(a)
+        b = int(b)
+        c = int(c)
+        d = int(d)
+
+        if a == b == c:
+            result = 4
+        elif a == b == d:
+            reuslt = 3
+        elif a == c == d:
+            result = 2
+        else:
+            result = 1
+    return render_template('lfnine.html', a=a, b=b, c=c, d=d, result=result)
