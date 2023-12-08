@@ -31,7 +31,7 @@ def order():
 
 @lab4.route('/lab4/holod', methods = ['GET','POST'])
 def holod():
-    if request.method== 'GET':
+    if request.method == 'GET':
         return render_template('holod.html')
     temper = request.form.get('temper')
     error= ''
@@ -40,16 +40,16 @@ def holod():
     else:
         if temper:
             temper = int(temper)
-            if (temper> -13) and 0>temper:
-                if (temper> -13) and (-8>temper):
+            if (temper > -13) and 0 > temper:
+                if (temper > -13) and (-8 > temper):
                     snow = '✻✻✻'
-                elif (temper>-9) and (-4>temper):
+                elif (temper > -9) and (-4 > temper):
                     snow = '✻✻'
-                elif (temper>-5) and (0> temper):
+                elif (temper > -5) and (0 > temper):
                     snow = '✻'
                 return render_template('temper.html',temper=temper,snow=snow)
             
-            if temper< -12:
+            if temper < -12:
                 error='не удалось установить температуру — слишком низкое значение'
             if temper > -1:
                 error='не удалось установить температуру — слишком высокое значение'
@@ -58,3 +58,42 @@ def holod():
 @lab4.route('/lab4/temper')
 def temper():
     return render_template('temper.html')
+
+@lab4.route('/lab4/zerno',methods = ['GET', 'POST'] )
+def zerno():
+    if request.method =='GET':
+        return render_template('zerno.html')
+    grain=request.form.get('grain')
+    weight=request.form.get('weight')
+    error=''
+    if weight=='':
+        error='Не ввели вес'
+    else:
+        weight=int(weight)
+        if weight>50:
+            sale=0.9
+            message='Применена скидка за большой объем'
+        else:
+            sale=1
+            message=''
+    if grain =='ячмень':
+        price= 12000*weight*sale
+    elif grain=='овёс':
+        price= 8500*weight*sale
+    elif grain=='пшеница':
+        price=8700*weight*sale
+    else:
+        price=14000*weight*sale
+    if (weight>0) and (501>weight):
+        return render_template('formzerno.html',grain=grain, weight=weight,
+                                   price=price, message=message)
+    if (weight<0) or weight==0:
+        error = 'Неверное значение веса'
+    elif weight> 500:
+        error = 'Объем отстутствует в магазине'
+    return render_template('zerno.html', grain=grain, weight=weight, error=error)
+ 
+ 
+@lab4.route('/lab4/formzerno')
+def formazerna():
+    return render_template('formzerno.html')
