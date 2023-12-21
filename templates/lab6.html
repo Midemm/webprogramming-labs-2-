@@ -1,0 +1,23 @@
+{%extends "base.html" %}
+
+{% block lab %}Лабораторная работа 5{% endblock %}
+
+{% block main %}
+    <h1>База знаний</h1>
+    <ol>
+        <li>
+            <a href="http://127.0.0.1:5000/lab6/articles">Просмотр заметок</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/lab6/new_article">Создание заметок</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/lab6/login">Логин</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/lab6/register">Регистрация</a>
+        </li>
+    </ol>
+
+    Имя пользователя: {{ username or 'Anon' }} 
+{% endblock %}

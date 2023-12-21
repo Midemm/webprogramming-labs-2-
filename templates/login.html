@@ -1,25 +1,31 @@
-{%extends "base.html" %}
+{% extends "base.html" %}
 
-{% block lab %}Лабораторная работа 4{% endblock %}
+{% block lab %}Лабораторная работа {{numLab}}{% endblock %}
 
 {% block main %}
     <h1>Вход</h1>
-    <h1>Пожалуйста, авторизуйтесь</h1>
-    <div style="text-align: center">{{ errors.cred or '' }}</div>
+    <h2>Пожалуйста, авторизуйтесь</h2>
+    <div>{{error}}
+        {% for error in errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
     <form method="post">
         <div>
-            <label for="username">Пользователь</label></br>
-            <input style="margin-left: 0px" type="text" id="username" name="username" value="{{ username }}">
-            <span class="error">{{ errors.username }}</span>
+            <label for="username">Пользователь:</label>
+            <input type="text" id="username" name="username" value="{{ username }}">
         </div>
         <div>
-            <label for="password">Пароль</label></br>
-            <input style="margin-left: 0px" type="password" id="password" name="password" value="{{ password }}">
-            <span class="error">{{ errors.password }}</span>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" value="{{ password }}">
         </div>
         <div>
             <button type="submit">Войти</button>
             <button type="reset">Отмена</button>
         </div>
+        <br>
+        <a href="http://127.0.0.1:5000/lab4" target="_blank">Меню лабы 4</a><br>
+        <a href="http://127.0.0.1:5000/lab5" target="_blank">Меню лабы 5</a><br>
+        <a href="http://127.0.0.1:5000/lab6" target="_blank">Меню лабы 6</a>
     </form>
 {% endblock %}

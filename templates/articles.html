@@ -1,16 +1,28 @@
-{% extends "base5.html" %}
+{% extends "base.html" %}
 
-{% block lab %} Лабораторная работа 5 {% endblock %}
+{% block lab %} Лабораторная работа {{numLab}}{% endblock %}
 
 {% block main %}
-    <div style="margin-top: 10px;display:flex;justify-content: space-between;">
-        <h1>База знаний</h1>
-        <a href="#">Просмотреть заметки</a>
-        <a href="http://127.0.0.1:5000/lab5/new_article" style="margin-left: -40px;">Создать заметку</a>
-        <a href="http://127.0.0.1:5000/lab5/login" class="log">Логин</a>
-        <a href="http://127.0.0.1:5000/lab5/register" class="reg">Регистрация</a>
-        <p>{{visibleUser}}</p>
+    {% if username %}
+        <div>
+            <h1><a href="http://127.0.0.1:5000/lab5">База знаний</a></h1>
+            <a href="http://127.0.0.1:5000/lab5/view_article">Просмотреть заметки</a>
+            <a href="http://127.0.0.1:5000/lab5/new_article" style="margin-left: -40px;">Создать заметку</a>
+            <a href="http://127.0.0.1:5000/lab5/login" class="log">Логин</a>
+            <a href="http://127.0.0.1:5000/lab5/register" class="reg">Регистрация</a>
+            <p>{{username}}</p>
+        </div>
+    {% else %}
+        <div>
+        <h1><a href="http://127.0.0.1:5000/lab6">База знаний</a></h1>
+        <a href="http://127.0.0.1:5000/lab6/articles">Просмотреть заметки</a>
+        <a href="http://127.0.0.1:5000/lab6/new_article" style="margin-left: -40px;">Создать заметку</a>
+        <a href="http://127.0.0.1:5000/lab6/login" class="log">Логин</a>
+        <a href="http://127.0.0.1:5000/lab6/register" class="reg">Регистрация</a>
+        <p>{{ current_user.username }}</p>
+        <p>{{username}}</p>
     </div>
+    {% endif %}
     <hr size="1">
 
     <div>
@@ -19,5 +31,21 @@
             <p>{{ paragraph }}</p>
         {% endfor %}
     </div>
+    <form method="POST" action="/lab6/articles/{{ article_id }}/publish">
+        <input type="hidden" name="is_public" value="True">
+        <button type="submit">Опубликовать</button>
+    </form>
+    <form method="POST" action="/lab6/articles/{{ article_id }}/favorite">
+        {% if is_favorite == True %}
+            <input type="hidden" name="is_favorite" value="False">
+            <button type="submit">Убрать из избранного</button>
+        {% else %}
+            <input type="hidden" name="is_favorite" value="True">
+            <button type="submit">Добавить в избранное</button>
+        {% endif %}
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
 
 {% endblock %}
