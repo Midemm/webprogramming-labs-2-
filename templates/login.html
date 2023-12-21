@@ -9,12 +9,12 @@
     <form method="post">
         <div>
             <label for="username">Пользователь</label></br>
-            <input style="margin-left: 0px" type="text" id="username" name="username" value="{{ username or '' }}">
+            <input style="margin-left: 0px" type="text" id="username" name="username" value="{{ username }}">
             <span class="error">{{ errors.username }}</span>
         </div>
         <div>
             <label for="password">Пароль</label></br>
-            <input style="margin-left: 0px" type="password" id="password" name="password" value="{{ password or '' }}">
+            <input style="margin-left: 0px" type="password" id="password" name="password" value="{{ password }}">
             <span class="error">{{ errors.password }}</span>
         </div>
         <div>

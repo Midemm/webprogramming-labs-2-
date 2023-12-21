@@ -1,0 +1,26 @@
+{% extends "base5.html" %}
+
+{% block lab %} Лабораторная работа 5 {% endblock %}
+
+{% block main %}
+    <div>
+        <h1>База знаний</h1>
+        <a href="http://127.0.0.1:5000/lab5/view_article">Просмотреть заметки</a>
+        <a href="http://127.0.0.1:5000/lab5/new_article" style="margin-left: -40px;">Создать заметку</a>
+        <a href="http://127.0.0.1:5000/lab5/login" class="log">Логин</a>
+        <a href="http://127.0.0.1:5000/lab5/register" class="reg">Регистрация</a>
+        <p>{{username}}</p>
+    </div>
+
+    <div>
+        <h1>Заметки {{username}}</h1>
+        <ol>
+            {% for article in articles %}
+                <li>
+                    <a href="/lab5/articles/{{ article.id }}">{{ article.title }}</a>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{%extends "base.html" %}
+
+{% block lab %}Лабораторная работа 5{% endblock %}
+
+{% block main %}
+    <h1>«Flask и БД»</h1>
+    Тема лабораторной - «Flask и БД». Список сделанных страниц:
+    <ol>
+        <li>
+            <a href="http://127.0.0.1:5000/lab5/view_article">Просмотр заметок</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/lab5/new_article">Создание заметок</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/lab5/login">Логин</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/lab5/register">Регистрация</a>
+        </li>
+    </ol>
+
+    Имя пользователя: {{ username or 'Anon' }} 
+{% endblock %}
