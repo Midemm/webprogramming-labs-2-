@@ -10,6 +10,7 @@ from Db import db
 from Db.models import users
 from flask_login import LoginManager
 from lab7 import lab7
+from lab11 import lab11
 
 user_db = "dmitrii_kolesnikov_knowlege_base_orm"
 host_ip = "127.0.0.1"
@@ -35,6 +36,7 @@ app.register_blueprint(lab4)
 app.register_blueprint(lab5)
 app.register_blueprint(lab6)
 app.register_blueprint(lab7)
+app.register_blueprint(lab11)
 
 app.secret_key = "123"
 

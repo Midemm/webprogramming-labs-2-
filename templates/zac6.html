@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Защита 6 лабораторная</title>
+</head>
+<body>
+    <h1>Вычисление выражения</h1>
+    <form method="post">
+        <label for="N">Введите значение N (целое число > 0):</label>
+        <input type="text" name="N" id="N" required>
+        <button type="submit">Вычислить</button>
+    </form>
+    {% if result is defined %}
+        <p>Значение выражения: {{ result }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Защита 6 лабораторная</title>
+</head>
+<body>
+    <h1>Произведение чисел от A до B</h1>
+    <form method="post">
+        <label for="A">Введите значение A:</label>
+        <input type="text" name="A" id="A" required>
+        <label for="B">Введите значение B (B должно быть больше A):</label>
+        <input type="text" name="B" id="B" required>
+        <button type="submit">Вычислить произведение</button>
+    </form>
+    {% if result %}
+        <p>Произведение всех целых чисел от {{ A }} до {{ B }} включительно: {{ result }}</p>
+    {% endif %}
+</body>
+</html>

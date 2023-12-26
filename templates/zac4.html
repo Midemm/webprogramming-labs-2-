@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Защита 4 лабораторная</title>
+</head>
+<body>
+    <h1>Описание числа</h1>
+    <form method="post">
+        <label for="number">Введите целое число:</label>
+        <input type="text" name="number" id="number" required>
+        <button type="submit">Получить описание</button>
+    </form>
+    {% if result %}
+        <p>Результат: {{ user_input }} - {{ result }}.</p>
+    {% endif %}
+</body>
+</html>
